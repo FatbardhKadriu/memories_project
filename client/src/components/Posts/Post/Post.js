@@ -26,19 +26,17 @@ const Post = ({ post , setCurrentId}) => {
                 </Button>
             </div>
             <div className={classes.details}>
-                <Typography variant="body2" color="textSecondary">{ post.tags.map((tag) => `${tag} `) }</Typography>
+                <Typography variant="body2" color="textSecondary">{ post.tags.map((tag) => `#${tag} `) }</Typography>
             </div>
+                <Typography className={classes.title} variant="h5" gutterBottom>{post.title}</Typography>
             <CardContent>
-                <Typography classNmae={classes.title} variant="h5" gutterBottom>{post.title}</Typography>
-            </CardContent>
-            <CardContent>
-                <Typography variant="h5" gutterBottom >{post.message}</Typography>
+                <Typography variant="body2" color="textSecondary" component="p" >{post.message}</Typography>
             </CardContent>
             <CardActions className={classes.cardActions}>
                 <Button size="small" color="primary" onClick={() => dispatch(likePost(post._id))}>
                     <ThumbUpAltIcon fontSize="small" />
-                    Like 
-                    {post.likeCount}
+                    &nbsp; Like 
+                    &nbsp; {post.likeCount}
                 </Button>
                 <Button size="small" color="primary" onClick={() => dispatch(deletePost(post._id))}>
                     <DeleteIcon fontSize="small" />
