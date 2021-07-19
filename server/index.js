@@ -1,16 +1,12 @@
 import express from 'express';
-import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv'
 
 import postRoutes from './routes/posts.js';
+import userRoutes from './routes/users.js';
 
 dotenv.config()
-
-const DB_USERNAME = process.env.DB_USERNAME;
-const DB_PASSWD = process.env.DB_PASSWORD;
-const DB_NAME = process.env.DB_NAME;
 
 const app = express();
 
@@ -19,6 +15,7 @@ app.use(express.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
 app.use('/posts', postRoutes);
+app.use('/user', userRoutes);
 
 const CONNECTION_URL = process.env.CONNECTION_URL;
 const PORT = process.env.PORT || 5000;
