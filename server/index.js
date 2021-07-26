@@ -6,6 +6,10 @@ import cors from 'cors';
 import postRoutes from './routes/posts.js';
 import userRouter from "./routes/user.js";
 
+import dotenv from 'dotenv'
+
+dotenv.config();
+
 const app = express();
 
 app.use(express.json({ limit: '30mb', extended: true }))
@@ -19,7 +23,7 @@ app.get('/', (req, res) => {
   res.send('Server is running');
 });
 
-const CONNECTION_URL = 'mongodb+srv://fatbardh:bardhidb@cluster0.m9htn.mongodb.net/memories?retryWrites=true&w=majority';
+const CONNECTION_URL = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.m9htn.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
 const PORT = process.env.PORT|| 5000;
 
 mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
