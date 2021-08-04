@@ -4,7 +4,7 @@ import { Link, useHistory, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import decode from 'jwt-decode';
 
-import memoriesLogo from '../../images/memoriesLogo.png';
+import memoriesLogo from '../../images/memoriesLogo.jpg';
 import memoriesText from '../../images/memoriesText.png';
 import * as actionType from '../../constants/actionTypes';
 import useStyles from './styles';
@@ -40,7 +40,7 @@ const Navbar = () => {
     <AppBar className={classes.appBar} position="static" color="inherit">
       <Link to="/" className={classes.brandContainer}>
         <img src={memoriesText} alt="icon" height="45px" />
-        <img className={classes.image} src={memoriesLogo} alt="icon" height="60" />
+        <img className={classes.image} src={memoriesLogo} alt="icon" height="70" />
       </Link>
       <Toolbar className={classes.toolbar}>
         {user?.result ? (

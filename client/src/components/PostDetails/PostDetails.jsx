@@ -29,6 +29,7 @@ const PostDetails = () => {
     if (isLoading) {
         return <Paper elevation={6} className={classes.loadingPaper}>
             <CircularProgress size="7em" />
+            <span style={{ justifyContent: "center", position: "fixed", top: "50%" }}>Loading...please wait</span>
         </Paper>
     }
 
@@ -46,7 +47,7 @@ const PostDetails = () => {
             <Typography variant="h6">Created by: {post.name}</Typography>
             <Typography variant="body1">{moment(post.createdAt).fromNow()}</Typography>
             <Divider style={{ margin: '20px 0' }} />
-            <Typography variant="body1"><strong>Who likes it</strong></Typography>
+            <Typography variant="body1"><strong> { post.likes.length } </strong> likes</Typography>
             <Divider style={{ margin: '20px 0' }} />
             <CommentSection post={post} />
             <Divider style={{ margin: '20px 0' }} />
